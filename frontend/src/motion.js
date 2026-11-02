@@ -8,26 +8,13 @@ export const reducedMotion = () => {
   }
 };
 
-// The intro stinger covers the first ~1s after the app first renders; anything mounted
-// before it lifts waits for it. Timed from first render, not page load, so a slow boot
-// can't let the page build underneath the stinger.
-export const INTRO_MS = reducedMotion() ? 0 : 1050;
-let introEndsAt = null;
-const introEnd = () => {
-  if (introEndsAt === null) introEndsAt = performance.now() + INTRO_MS;
-  return introEndsAt;
-};
-
-/** Seconds until the intro has lifted, measured at the moment a component mounts. */
-export function useEnterDelay() {
-  const [delay] = useState(() => Math.max(0, introEnd() - performance.now()) / 1000);
-  return delay;
-}
+/** No page-load choreography any more; kept so components can pass a start delay of 0. */
+export const useEnterDelay = () => 0;
 
 const easeOutExpo = (t) => (t >= 1 ? 1 : 1 - 2 ** (-10 * t));
 
 /** Animates a number towards `target`; later changes glide from the current value. */
-export function useCountUp(target, { duration = 1100, delay = 0, decimals = 0, active = true } = {}) {
+export function useCountUp(target, { duration = 700, delay = 0, decimals = 0, active = true } = {}) {
   const [reduce] = useState(reducedMotion);
   const [value, setValue] = useState(0);
   const current = useRef(0);
