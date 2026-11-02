@@ -63,16 +63,10 @@ export default function Summary({ data }) {
 
   return (
     <section className="summary" aria-labelledby="summary-title">
-      <div className="verdict">
-        <header className="verdict-head">
-          <h2 id="summary-title" className="summary-title">{summary.headline}</h2>
-          <p className="summary-deck">{summary.deck}</p>
-        </header>
-        <div className="verdict-next">
-          <ArrowRight size={20} aria-hidden className="verdict-next-icon" />
-          <p><strong>Do this first:</strong> {summary.next_action}</p>
-        </div>
-      </div>
+      <header>
+        <h2 id="summary-title" className="summary-title">{summary.headline}</h2>
+        <p className="summary-deck">{summary.deck}</p>
+      </header>
 
       <div className="scores">
         <section className={`plate score tone-${tone(tiltLevel)}`} aria-label="Anger risk">
@@ -99,6 +93,11 @@ export default function Summary({ data }) {
           <LevelBar current={addLevel} after={addAfter ? projected.addiction_category : null} probs={data.addiction_probabilities} />
           {addAfter && <Legend afterLabel={projected.addiction_category} />}
         </section>
+      </div>
+
+      <div className="verdict-next">
+        <ArrowRight size={20} aria-hidden className="verdict-next-icon" />
+        <p><strong>Do this first:</strong> {summary.next_action}</p>
       </div>
     </section>
   );

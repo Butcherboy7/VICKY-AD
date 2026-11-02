@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { AlertTriangle, ArrowRight, SlidersHorizontal, X } from 'lucide-react';
+import { Activity, AlertTriangle, ArrowRight, SlidersHorizontal, X } from 'lucide-react';
 import { api } from './api';
 import { DEFAULT_VALUES, rankLabel } from './constants';
 import PlayerSearch from './components/PlayerSearch';
@@ -180,11 +180,8 @@ export default function App() {
     <div className="app">
       <header className="topbar">
         <a className="wordmark" href="/" aria-label="Adaptive Gamer Coach home">
-          <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden>
-            <path d="M4 26 L16 4 L28 26 Z" fill="none" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" />
-            <path d="M10 26 L16 15 L22 26" fill="#ff4655" />
-          </svg>
-          <span className="wordmark-text">Adaptive Gamer <b>Coach</b></span>
+          <span className="wordmark-mark" aria-hidden><Activity size={17} strokeWidth={2.4} /></span>
+          <span>Adaptive Gamer Coach</span>
         </a>
         {started ? <PlayerSearch onSelect={selectPlayer} loading={lookingUp} /> : <span />}
         <span className={`api-status is-${apiStatus}`} role="status">
