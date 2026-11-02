@@ -1,39 +1,42 @@
 ---
 name: Adaptive Gamer Coach
-description: A plain, professional health-analytics report on one player's tilt risk and gaming habits, explained factor by factor.
+description: A dark, broadcast-style report on one player's anger risk and gaming habits, explained factor by factor in plain words.
 colors:
-  ground: "#f4f5f7"
-  sheet: "#ffffff"
-  sheet-2: "#f6f7f9"
-  line: "#e1e4e8"
-  ink: "#14181f"
-  ink-2: "#444c57"
-  ink-3: "#66707c"
-  ok: "#1a7348"
-  watch: "#8f5a00"
-  risk: "#b3261e"
+  ground: "#0c0f13"
+  sheet: "#141920"
+  sheet-2: "#1b2129"
+  sheet-3: "#222a33"
+  line: "#262e37"
+  ink: "#ece8df"
+  ink-2: "#a9b1b9"
+  ink-3: "#858e97"
+  bone: "#f1ede4"
+  red: "#ff4655"
+  red-deep: "#c42634"
+  ok: "#3fd9a3"
+  watch: "#f2a93b"
+  risk: "#ff7380"
 typography:
-  family: "'Public Sans Variable', 'Segoe UI', system-ui, sans-serif"
-  headline: { fontSize: "clamp(26px, 2.8vw, 34px)", fontWeight: 700, letterSpacing: "-0.025em" }
-  score: { fontSize: "54px", fontWeight: 700 }
+  display: "'Big Shoulders Display', sans-serif (caps, titles and big numbers)"
+  family: "'Archivo Variable', 'Segoe UI', system-ui, sans-serif"
   body: { fontSize: "15px", fontWeight: 400, lineHeight: 1.55 }
-  label: { fontSize: "13px", fontWeight: 600 }
+  label: { fontSize: "12px", fontWeight: 650, caps: true, tracking: "0.06em", width: "condensed" }
 rounded:
-  sheet: "10px"
-  control: "6px"
+  sheet: "2px"
+  control: "2px"
 ---
 
 # Design System: Adaptive Gamer Coach
 
 ## Overview
-A clear report, not a game HUD. Light cool-white ground, white sheets with 1px hairlines, ink as the only brand colour. Green, amber and brick appear only as risk status and are always paired with a word (Low / Medium / High, Healthy / Watch / Off track). Built for a projector: strong contrast, 15px body text, tabular numerals.
+Graphite plates on a near-black ground, a bone verdict plate with a red "Do this first" strip, signal red for the primary action. This is the original Valorant-flavoured look, kept on purpose, with the new structure and plain wording underneath. Green, amber and red are risk status only and always come with a word (Low / Medium / High, Healthy / Watch / Off track).
 
 ## Rules
-- One typeface (Public Sans), sentence-case labels, no tracking tricks, no all-caps.
-- Ink (#14181f) carries primary actions, slider thumbs, focus rings and the "Do this first" block.
-- Sheets are flat: 1px border, 10px radius. Only the search dropdown has a shadow.
-- No gradients (except the functional slider fill), glows, skew, clip-path, glass or intro animation. Motion is one short fade when a report loads, plus bars growing once.
-- Every number comes from the model or the inputs; no decorative charts.
+- Big Shoulders Display in caps for titles, scores and numbers; Archivo for everything you read.
+- Slanted cuts (clip-path, skew) on section tabs, the verdict plate, score tags and bands. Everything else is square.
+- The bone plate carries the verdict; the red strip carries the one next step. Red also marks the primary button.
+- One idea per screen: pick a player, move sliders, read the result. Wording is plain: "anger risk", never "tilt".
+- Every number comes from the model or the inputs; values estimated from the six manual questions are tagged Estimated or Typical.
 
 ## Layout
-Top bar (wordmark, Riot ID search, API status). Empty state: title, purpose, three numbered steps, example players. With a player: sticky left column (profile + live inputs), right column verdict, two score sheets, factor board, plan, after-plan comparison, warning signs and help, model card.
+Top bar (wordmark, Riot ID search once a report is open, API status). Empty state: title and a three-step picture (pick, sliders, plan). Manual entry: six questions with a live result box. With a player: sticky left column (profile and live inputs), right column verdict, two score sheets, problems list, plan, warning signs and help, model card.

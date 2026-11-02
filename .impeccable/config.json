@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "border-accent-on-rounded",
+        "value": "*",
+        "files": [
+          "frontend/src/index.css"
+        ],
+        "createdAt": "2026-11-02T13:58:42.897Z",
+        "reason": "Agent: .match chips are square (border-radius:0 in theme layer); top stripe is the original win/loss marker the user asked to keep"
+      }
+    ]
+  }
+}
